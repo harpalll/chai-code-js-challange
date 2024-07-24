@@ -65,4 +65,3 @@ parent.addEventListener("click", (e) => {
     if (e.target && e.target.nodeName === "LI") console.log(`New Item added ${parent.children.length + 1}`)
     parent.appendChild(newItem)
 })
-
