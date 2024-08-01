@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage | Session Storage</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .users {
+            margin-top: 50px;
+            width: 50%;
+            padding: 20px;
+            border: 1px solid greenyellow;
+        }
+
+        #removeBtn {
+            padding: 12px 20px;
+            background-color: rgb(217, 72, 72);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form action="#" id="form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+            <label for="email">email</label>
+            <input type="email" id="email" name="email">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="users">
+
+    </div>
+
+    <script>
+        // localStorage.setItem("string", "hello")
+        // console.log(localStorage.getItem("string"));
+
+        // const obj = {
+        //     1: 1,
+        //     2: 2
+        // }
+
+        // localStorage.setItem("obj", JSON.stringify(obj))
+        // console.log(JSON.parse(localStorage.getItem("obj")));
+
+        // using local storage
+        // const form = document.getElementById("form")
+        // const usersDiv = document.getElementsByClassName("users")[0]
+        // form.addEventListener("submit", (e) => {
+        //     e.preventDefault()
+        //     const formData = new FormData(e.target)
+        //     const entries = Object.fromEntries(formData.entries())
+        //     const user = {
+        //         name: entries.name,
+        //         email: entries.email
+        //     }
+        //     localStorage.setItem("User", JSON.stringify(user))
+        //     alert(`User Submitted Successfully with Email : ${entries.email} `)
+        //     location.reload()
+        // })
+
+        // document.addEventListener("DOMContentLoaded", () => {
+        //     const users = JSON.parse(localStorage.getItem("User"))
+
+        //     if (users) {
+        //         let clutter = ""
+        //         clutter += `
+        //         <h1>${users.name}</h1>
+        //         <p>${users.email}</p>
+        //         <button id="removeBtn">Remove User</button>
+        //     `
+        //         usersDiv.innerHTML += clutter
+
+        //         const removeBtn = document.getElementById("removeBtn");
+        //         if (removeBtn) {
+        //             removeBtn.addEventListener("click", () => {
+        //                 console.log(`Before Removal: ${users}`);
+        //                 localStorage.removeItem("User");
+        //                 console.log(`After Removal: ${localStorage.getItem("User")}`);
+        //                 location.reload()
+        //             });
+
+        //         } else {
+        //             console.error("Remove button not found");
+        //         }
+        //     }
+        // })
+        // understanding session storage
+        // sessionStorage.setItem("str", "hello")
+        // console.log(sessionStorage.getItem("str"));
+
+        // const obj = {
+        //     1: 1,
+        //     2: 2
+        // }
+
+        // sessionStorage.setItem("obj", JSON.stringify(obj))
+        // console.log(JSON.parse(sessionStorage.getItem("obj")));
+
+        // using session storage
+        // const form = document.getElementById("form")
+        // const usersDiv = document.getElementsByClassName("users")[0]
+        // form.addEventListener("submit", (e) => {
+        //     e.preventDefault()
+        //     const formData = new FormData(e.target)
+        //     const entries = Object.fromEntries(formData.entries())
+        //     const user = {
+        //         name: entries.name,
+        //         email: entries.email
+        //     }
+        //     sessionStorage.setItem("User", JSON.stringify(user))
+        //     alert(`User Submitted Successfully with Email : ${entries.email} `)
+        //     location.reload()
+        // })
+
+        // document.addEventListener("DOMContentLoaded", () => {
+        //     const users = JSON.parse(sessionStorage.getItem("User"))
+
+        //     if (users) {
+        //         let clutter = ""
+        //         clutter += `
+        //         <h1>${users.name}</h1>
+        //         <p>${users.email}</p>
+        //         <button id="removeBtn">Remove User</button>
+        //     `
+        //         usersDiv.innerHTML += clutter
+
+        //         const removeBtn = document.getElementById("removeBtn");
+        //         if (removeBtn) {
+        //             removeBtn.addEventListener("click", () => {
+        //                 console.log(`Before Removal: ${users}`);
+        //                 sessionStorage.removeItem("User");
+        //                 console.log(`After Removal: ${sessionStorage.getItem("User")}`);
+        //                 location.reload()
+        //             });
+
+        //         } else {
+        //             console.error("Remove button not found");
+        //         }
+        //     }
+        // })
+
+        function storeToLSAndSS(key, value) {
+            localStorage.setItem(key, value)
+            sessionStorage.setItem(key, value)
+            console.log("Stored Successfully", key, value);
+
+            console.log("retriving");
+            console.log(
+                localStorage.getItem(key),
+                sessionStorage.getItem(key)
+            );
+        }
+
+        function emptyLSAndSS() {
+            localStorage.clear()
+            sessionStorage.clear()
+            console.log("Data Cleared Successfully");
+        }
+
+        // storeToLSAndSS("str", "hello")
+        emptyLSAndSS()
+    </script>
+</body>
+
+</html>
